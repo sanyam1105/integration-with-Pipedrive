@@ -1,0 +1,17 @@
+# Update a Person on Pipedrive given it's ID
+import requests
+import json
+
+url = "https://api.pipedrive.com/v1/persons/4?name=<test123>&api_token=1497a7ecdfa9b5199ee060d51c2ec7f5d49a8056"
+
+payload = json.dumps({
+  "name": "Jojo"
+})
+headers = {
+  'Content-Type': 'application/json',
+  'Cookie': '__cf_bm=6b37adb95696075473dbc40fe49413aa84dcf435-1625911146-1800-AcL1JE7IlP8UsmDjogX7Fosh5hsn9QAbvQDiWXkSWiF/bBMNk75g5o3CqkwBcExJNosYEKdLb2BVQyFQH533L6g='
+}
+
+response = requests.request("PUT", url, headers=headers, data=payload)
+
+print(response.text)
