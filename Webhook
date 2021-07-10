@@ -1,0 +1,37 @@
+# Get all the webhooks created 
+import requests
+
+url = "https://api.pipedrive.com/v1/webhooks?api_token=1497a7ecdfa9b5199ee060d51c2ec7f5d49a8056"
+
+payload = {}
+headers = {
+            'Cookie': '__cf_bm=054695dfe937c5a82ea3c21d3f44876f3cc3d9a0-1625908074-1800-AfP01CBHutvSic65/eNahO2xXaNF/T9fxyUTb7Q7iiRxXS7vu7kU2WFZa8i7X8JqDO4D6nyMXP8OxjdJvbEq2mo='
+          }
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+# To Add a person
+
+import requests
+import json
+
+url = "https://api.pipedrive.com/v1/persons?api_token=1497a7ecdfa9b5199ee060d51c2ec7f5d49a8056&Name=<Test>"
+
+payload = json.dumps(
+                      {
+                        "name": "test123"
+                      }
+                    )
+headers = {
+            'Content-Type': 'application/json',
+            'Cookie': '__cf_bm=054695dfe937c5a82ea3c21d3f44876f3cc3d9a0-1625908074-1800-AfP01CBHutvSic65/eNahO2xXaNF/T9fxyUTb7Q7iiRxXS7vu7kU2WFZa8i7X8JqDO4D6nyMXP8OxjdJvbEq2mo='
+          }
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+
+# The link for recieving a webhook hit whenever new Persons are created or updated.
+# https://webhook.site/#!/884953d3-7518-4138-9396-7bfac4570ad0/ca032d24-608a-4af5-ad01-293cb2c823ce/1
