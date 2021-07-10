@@ -1,0 +1,12 @@
+import requests
+
+url = "https://api.pipedrive.com/v1/persons/find?term=<Sanyam>&id=<2>&api_token=1497a7ecdfa9b5199ee060d51c2ec7f5d49a8056"
+
+payload = {}
+headers = {
+            'Cookie': '__cf_bm=9ad9f06ba12e25aa9592cfcbef597075e63a4f11-1625904616-1800-AS3Eo9l6+QWzT0Gsr3wu6uWpMZvpuzlDHh84ZLd/JYEWZwasdaoQ/7nGOlFYCrBf4QzC4DoBS5QvvkvUDLrCbq4='
+          }
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
